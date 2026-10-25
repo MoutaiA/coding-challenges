@@ -1,0 +1,7 @@
+Ceci est un fichier d'exemple
+
+L'objectif est de permettre de compter un certain nombre de mots
+
+Mais aussi les bytes, et les lignes sautées.
+
+Mais attention, il c'est que la phase 1, car dans le second fichier de test, il y aura également des choses comme des émojis, ou bien des écritures non ASCII
