@@ -1,3 +1,4 @@
 ﻿using CodingChallenges.WordCount;
 
-var file = CodingChallenges.WordCount.InputFileHandler.Open("");
+var filecontent = InputFileHandler.Open("test.txt");
+Console.WriteLine($"---> {filecontent}");

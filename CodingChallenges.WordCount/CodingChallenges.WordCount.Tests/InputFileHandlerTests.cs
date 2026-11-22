@@ -26,4 +26,14 @@ public class InputFileHandlerTests
 		var ex = Assert.Throws<FileNotFoundException>(() => InputFileHandler.Open(filepath));
 		Assert.Contains("Sorry, No such file or directory!", ex.Message);
 	}
+
+	[Fact]
+	public void ShouldReturnNothing_WhenFileEmpty()
+	{
+		string filepath = FileHelper.SetFilePath("empty.txt");
+
+		var result = InputFileHandler.Open(filepath);
+
+		Assert.Empty(result);
+	}
 }
