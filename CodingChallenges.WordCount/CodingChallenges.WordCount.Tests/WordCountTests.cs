@@ -15,4 +15,16 @@ public class WordCountTests
 
 		Assert.Equal(expected, result);
 	}
+
+	[Theory]
+	[InlineData("multiple line\n", 2)]
+	[InlineData("multiple line\n\n\n", 4)]
+	[InlineData("multiple line\r\n\n", 3)]
+	[InlineData("", 1)]
+	public void ShouldCountCorrectLines_WhenCalledWithLinesArg(string filecontent, int expected)
+	{
+		var result = WordCount.CountLines(filecontent);
+
+		Assert.Equal(expected, result);
+	}
 }

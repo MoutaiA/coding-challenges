@@ -15,4 +15,14 @@ public class WordCount
 
 		return count;
 	}
+
+	public static int CountLines(string filecontent)
+	{
+		var count = 0;
+		foreach(var _ in filecontent.AsSpan().EnumerateLines())
+		{
+			count++;
+		}
+		return count;
+	}
 }
