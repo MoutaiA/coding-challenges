@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/CodingChallenges.WordCount/" />
+  <Project Path="CodingChallenges.WordCount.Tests/CodingChallenges.WordCount.Tests.csproj" />
+  <Project Path="CodingChallenges.WordCount/CodingChallenges.WordCount.csproj" />
+</Solution>
