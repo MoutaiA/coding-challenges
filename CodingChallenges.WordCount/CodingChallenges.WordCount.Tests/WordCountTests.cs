@@ -27,4 +27,34 @@ public class WordCountTests
 
 		Assert.Equal(expected, result);
 	}
+
+	[Theory]
+	[InlineData("test\n", 5)]
+	[InlineData("test", 4)]
+	[InlineData("", 0)]
+	[InlineData("café", 5)]
+	[InlineData("€", 3)]
+	[InlineData("😀", 4)]
+	[MemberData(nameof(DataHelper.MultiLinesBytes), MemberType = typeof(DataHelper))]
+	public void ShouldCountCorrectBytes_WhenCallingCountBytes(string filecontent, int expected)
+	{
+		var result = WordCount.CountBytes(filecontent);
+
+		Assert.Equal(expected, result);
+	}
+
+
+	[Theory]
+	[InlineData("hello", 5)]
+	[InlineData("", 0)]
+	[InlineData("\r", 1)]
+	[InlineData("café", 4)]
+	[InlineData("€", 1)]
+	[InlineData("😀", 1)]
+	public void ShouldCountCorrectCharacters_WhenCallingCountCharacters(string filecontent, int expected)
+	{
+		var result = WordCount.CountCharacters(filecontent);
+
+		Assert.Equal(expected, result);
+	}
 }
