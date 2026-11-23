@@ -9,6 +9,11 @@ public class WordCountTests
 	[InlineData("this is an example", 4)]
 	[InlineData("this is another example of a test", 7)]
 	[InlineData("", 0)]
+	[InlineData("   coucou", 1)]
+	[InlineData("   coucou    ", 1)]
+	[InlineData("   coucou    test", 2)]
+	[InlineData("   coucou    \ntest\n", 2)]
+	[InlineData("   coucou    \n test lol \n xd", 4)]
 	public void ShoudlCountCorrectNumber_WhenCalledWithWordsArg(string filecontent, int expected)
 	{
 		var result = WordCount.CountWords(filecontent);
@@ -17,10 +22,12 @@ public class WordCountTests
 	}
 
 	[Theory]
-	[InlineData("multiple line\n", 2)]
-	[InlineData("multiple line\n\n\n", 4)]
-	[InlineData("multiple line\r\n\n", 3)]
-	[InlineData("", 1)]
+	[InlineData("multiple line\n", 1)]
+	[InlineData("multiple line\n\n\n3", 3)]
+	[InlineData("multiple line\r\n2\n", 2)]
+	[InlineData("", 0)]
+	[InlineData("line\n", 1)]
+	[InlineData("line", 0)]
 	public void ShouldCountCorrectLines_WhenCalledWithLinesArg(string filecontent, int expected)
 	{
 		var result = WordCount.CountLines(filecontent);
